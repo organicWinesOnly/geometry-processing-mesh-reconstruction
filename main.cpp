@@ -38,6 +38,8 @@ int main(int argc, char *argv[])
   Eigen::MatrixXd V;
   Eigen::MatrixXi F;
   poisson_surface_reconstruction(P,N,V,F);
+  std::cout<< "f : " << F.rows() << std::endl;
+  std::cout<< "v : " << V.rows() << " and " <<  V.cols() << std::endl;
 
   // Create a libigl Viewer object to toggle between point cloud and mesh
   igl::opengl::glfw::Viewer viewer;
