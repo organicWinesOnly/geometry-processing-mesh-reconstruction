@@ -3,7 +3,6 @@
 #include "fd_grad.h"
 #include <igl/copyleft/marching_cubes.h>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
 
 void poisson_surface_reconstruction(
@@ -105,9 +104,7 @@ void poisson_surface_reconstruction(
   // function always extracts g=0, so "pre-shift" your g values by -sigma
   ////////////////////////////////////////////////////////////////////////////
   double sigma;
-  sigma = (1/n) * Eigen::RowVectorXd::Ones(n).eval() * (weight * g); // +
-  std::cout<<  v.count() <<std::endl; // +
-  std::cout<< sigma <<std::endl; // +
+  sigma = (1/n) * Eigen::RowVectorXd::Ones(n).eval() * (weight * g); 
 
   g = g.array() - sigma;
   igl::copyleft::marching_cubes(g, x, nx, ny, nz, V, F);

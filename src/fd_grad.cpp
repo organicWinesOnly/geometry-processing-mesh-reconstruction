@@ -1,7 +1,5 @@
-#include <iostream>
 #include "fd_grad.h"
 #include "fd_partial_derivative.h"
-// TODO write some test
 
 void fd_grad(
   const int nx,
@@ -19,13 +17,9 @@ void fd_grad(
   Eigen::SparseMatrix<double> Dx;
   Eigen::SparseMatrix<double> Dy;
   Eigen::SparseMatrix<double> Dz;
-  std::cout << "partial" << std::endl;
   fd_partial_derivative(nx, ny, nz, h, 0, Dx);  
-  std::cout << "x partial" << std::endl;
   fd_partial_derivative(nx, ny, nz, h, 1, Dy);  
-  std::cout << "x partial" << std::endl;
   fd_partial_derivative(nx, ny, nz, h, 2, Dz); 
-  std::cout << "x partial" << std::endl;
 
   Eigen::SparseMatrix<double> itermed(n, m);
   G.resize(m, n);

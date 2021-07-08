@@ -1,6 +1,5 @@
 #include "fd_partial_derivative.h"
 #include <vector>
-#include <iostream>
 
 void partial_x_direction(
     const int nx, 
